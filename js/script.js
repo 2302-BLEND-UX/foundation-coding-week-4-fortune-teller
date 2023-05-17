@@ -1,3 +1,12 @@
+// declare elements
+const beginButton = document.getElementById("begin");
+const reveal = document.getElementById("reveal");
+const nameInput = document.getElementById("name-input");
+const colourSelect = document.getElementById("colour-select");
+const fortune = document.getElementById("fortune");
+// Get all the radio buttons
+const radioButtons = document.getElementsByName('season-picker');
+
 // declare swiper
 var swiper = new Swiper(".mySwiper", {
     allowTouchMove: false,
@@ -6,13 +15,6 @@ var swiper = new Swiper(".mySwiper", {
         crossFade: true
     }
 });
-// declare elements
-const beginButton = document.getElementById("begin");
-const reveal = document.getElementById("reveal");
-const nameInput = document.getElementById("name-input");
-const colourSelect = document.getElementById("colour-select");
-// Get all the radio buttons
-const radioButtons = document.getElementsByName('season-picker');
 
 // declare our data
 // fortunes array
@@ -41,6 +43,8 @@ const fortunes = [
 
 // validation checker
 let validationPassed = false;
+// checked season variable
+let checkedSeason = null;
 
 // user functionality
 beginButton.addEventListener("click", function () {
@@ -56,6 +60,7 @@ function checkIfInformationValid() {
     // Iterate through the radio buttons
     for (let i = 0; i < radioButtons.length; i++) {
         if (radioButtons[i].checked) {
+            checkedSeason = radioButtons[i].value;
             isAnyChecked = true;
             break; // Exit the loop if any radio button is checked
         }
@@ -68,6 +73,22 @@ function checkIfInformationValid() {
     validationPassed = true;
 }
 
+// generate fortune function
+// this creates the fortune, based on the user details
+
+function generateFortune(details) {
+    // generate random index
+    let randomIndex = Math.floor(Math.random() * fortunes.length);
+
+    // update the fortune slide
+    fortune.innerHTML = `
+    <p>${details.name}, I bring you my prediction.</p>
+    <p>${fortunes[randomIndex]}</p>
+    `
+}
+
+
+// user has clicked the reveal fortune button
 reveal.addEventListener("click", function () {
     event.preventDefault();
     // run validation
@@ -75,6 +96,13 @@ reveal.addEventListener("click", function () {
     // if (variableName) is the same as checking if it's true
     if (validationPassed) {
         swiper.slideNext();
+        // put all the user details into an object
+        let userDetails = {
+            name: nameInput.value,
+            colour: colourSelect.value,
+            season: checkedSeason
+        }
+        generateFortune(userDetails);
     } else {
         alert("Enter in your details")
     }

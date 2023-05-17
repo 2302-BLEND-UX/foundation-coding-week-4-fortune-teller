@@ -88,7 +88,7 @@ body {
 }
 
 #landing-slide {
-  background-image: url("/img/bg-image-landing.jpg");
+  background-image: url("../img/bg-image-landing.jpg");
   background-size: cover;
 }
 #landing-slide img {
@@ -103,6 +103,9 @@ body {
 }
 #input-slide form .form-section {
   margin-bottom: 30px;
+}
+#input-slide form .form-section.last-section {
+  margin-bottom: 90px;
 }
 #input-slide form label {
   margin-right: 5px;

@@ -96,6 +96,10 @@ body {
     form {
         .form-section {
             margin-bottom: $med-spacing;
+
+            &.last-section {
+                margin-bottom: 90px;
+            }
         }
 
         label {
