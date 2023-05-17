@@ -1,0 +1,14 @@
+@import "modules/resets";
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;0,900;1,700;1,900&display=swap');
+// bootstrap icons
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+// variables
+@import "modules/variables";
+// typography
+@import "modules/typography";
+
+// responsive
+@import "modules/responsive/mobile";
+@import "modules/responsive/tablet";
+@import "modules/responsive/desktop";

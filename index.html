@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/main.css">
+    <title>Fortune Telling App</title>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div id="landing-slide" class="swiper-slide">
+                <img src="img/crystal-ball.png" alt="line art of hands holding crystal ball">
+                <h1><span>Unlock</span> Your Destiny, <span>Embrace</span> the Future</h1>
+                <h2>FORTUNE TELLER</h2>
+                <button id="begin">Get started! <i class="bi bi-arrow-right button-arrow"></i></button>
+            </div>
+            <div id="input-slide" class="swiper-slide">
+                <h2><span>Tell</span> Me About Yourself</h2>
+                <form action="">
+                    <div class="form-section">
+                        <label for="name-input">What's your name?</label>
+                        <input type="text" id="name-input">
+                    </div>
+                    <div class="form-section">
+                        <label for="fav-colour">What's your favourite colour?</label>
+                        <select name="fav-colour" id="colour-select">
+                            <option value="">Select a colour...</option>
+                            <option value="red">Red</option>
+                            <option value="blue">Blue</option>
+                            <option value="green">Green</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-section">
+                        <legend>Tell me the season you were born in:</legend>
+
+                        <input type="radio" id="summer" name="season-picker" value="summer">
+                        <label for="summer">Summer</label>
+
+
+                        <input type="radio" id="winter" name="season-picker" value="winter">
+                        <label for="winter">Winter</label>
+
+
+                        <input type="radio" id="autumn" name="season-picker" value="autumn">
+                        <label for="autumn">Autumn</label>
+
+
+                        <input type="radio" id="spring" name="season-picker" value="spring">
+                        <label for="spring">Spring</label>
+
+                    </div>
+                    <button id="reveal">Reveal your fortune! <i class="bi bi-arrow-right button-arrow"></i></button>
+                </form>
+            </div>
+            <div class="swiper-slide">Slide 3</div>
+        </div>
+    </div>
+    <!-- attach javascript -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
