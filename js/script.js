@@ -73,10 +73,31 @@ function checkIfInformationValid() {
     validationPassed = true;
 }
 
+// Fortune: back button
+
+function activateBackButton() {
+    const back = document.getElementById("back-button");
+    back.addEventListener("click", function () {
+        colourSelect.value = "";
+        nameInput.value = "";
+        // reset radios
+        for (let i = 0; i < radioButtons.length; i++) {
+            radioButtons[i].checked = false;
+        }
+        fortune.classList.remove("stars");
+        swiper.slideTo(0);
+    })
+}
+
 // generate fortune function
 // this creates the fortune, based on the user details
 
 function generateFortune(details) {
+    if (details.colour === "other") {
+        fortune.classList.add("stars");
+    } else {
+        fortune.style.backgroundColor = details.colour;
+    }
     // generate random index
     let randomIndex = Math.floor(Math.random() * fortunes.length);
 
@@ -84,7 +105,10 @@ function generateFortune(details) {
     fortune.innerHTML = `
     <p>${details.name}, I bring you my prediction.</p>
     <p>${fortunes[randomIndex]}</p>
+    <button id="back-button">back</button>
     `
+    // add back functionality
+    activateBackButton();
 }
 
 
